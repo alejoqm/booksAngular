@@ -1,0 +1,16 @@
+<div class="card">  
+    <div class="hero-list" *ngIf="bookInfo">
+      TITLE
+      <div *ngFor="let item of bookInfo">
+          {{item.title}}
+          {{item | json}}
+          <div *ngFor="let info of item.info | keyvalue">
+                <p><b>{{info.key}}: </b> {{info.value}}</p>
+             </div>
+      </div>
+
+        
+
+
+    </div>
+</div>  

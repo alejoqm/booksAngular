@@ -1,0 +1,60 @@
+<div class="card">  
+  <div class="card-body">  
+    <form [formGroup]="angForm" novalidate>  
+      <div class="form-group">  
+        <label class="col-md-4">Product Name</label>  
+        <input type="text" class="form-control"   
+          formControlName="BookName"   
+          #BookName />  
+      </div>  
+      <div *ngIf="angForm.controls['BookName'].invalid && (angForm.controls['BookName'].dirty || angForm.controls['BookName'].touched)" class="alert alert-danger">  
+        <div *ngIf="angForm.controls['BookName'].errors.required">  
+          Book Name is required.  
+        </div>  
+      </div>  
+
+      <div class="form-group">  
+        <label class="col-md-4">Book Author</label>  
+        <input type="text" class="form-control"   
+          formControlName="BookAuthor" #BookAuthor  
+        />  
+      </div>  
+      <div *ngIf="angForm.controls['BookAuthor'].invalid && (angForm.controls['BookAuthor'].dirty || angForm.controls['BookAuthor'].touched)" class="alert alert-danger">  
+        <div *ngIf="angForm.controls['BookAuthor'].errors.required">  
+          Book Author is required.  
+        </div>  
+      </div>  
+      <div class="form-group">  
+        <button (click) = "addBook(BookName.value, BookAuthor.value)" type="submit" class="btn btn-primary"  
+        [disabled]="angForm.pristine || angForm.invalid" >  
+          Create Book  
+        </button>  
+      </div>  
+    </form>  
+  </div>  
+</div>  
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Book List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books | async">
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td><button (click)="deleteBook(book.title, book.author)" class="btn btn-danger">Delete</button>
+                <button (click)="viewBook(book.title)" class="btn btn-primary">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "Backend to managment books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "crawler": "^1.2.1",
+    "express": "^4.17.1",
+    "file-extension": "^4.0.5",
+    "google": "^2.1.0",
+    "google-scraper": "^1.1.2",
+    "google-search-scraper": "^0.1.0",
+    "htmlparser2": "^4.0.0",
+    "mongoose": "^5.6.9",
+    "request": "^2.88.0",
+    "string-format": "^2.0.0"
+  }
+}
